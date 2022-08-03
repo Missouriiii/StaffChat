@@ -6,6 +6,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\Server;
+use SxxCodezx\Sounds;
 use function implode;
 
 class StaffChatCommand extends Command {
@@ -21,11 +22,13 @@ class StaffChatCommand extends Command {
     {
         if($sender instanceof Player){
             if(!$sender->hasPermission("staffchat.cmd")){
+                Sounds::addSound($sender, 'note.bass', 50, 1);
                 $sender->sendMessage($this->prefix."You Dont Have Permission To Enter In StaffChat");
                 return false;
             }
             if(!isset($args[0])){
                 $sender->sendMessage($this->prefix."You Need More Arguments");
+                Sounds::addSound($sender, 'note.bass', 50, 1);
                 return false;
             }
             $message = implode(" ", $args);
