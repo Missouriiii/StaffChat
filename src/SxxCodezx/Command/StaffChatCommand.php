@@ -11,11 +11,11 @@ use function implode;
 
 class StaffChatCommand extends Command {
 
-    public $prefix = "§l§4STAFFCHAT §r§7» ";
+    public $prefix = "§8[§bStaffchat§8] §l§7»§r ";
 
     public function __construct()
     {
-        parent::__construct("sc", "Send Message To StaffChat", null, ["staffchat"]);
+        parent::__construct("sc", "Send a message to the staff chat!", null, ["staffchat"]);
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
@@ -23,7 +23,7 @@ class StaffChatCommand extends Command {
         if($sender instanceof Player){
             if(!$sender->hasPermission("staffchat.cmd")){
                 Sounds::addSound($sender, 'note.bass', 50, 1);
-                $sender->sendMessage($this->prefix."You Dont Have Permission To Enter In StaffChat");
+                $sender->sendMessage($this->prefix."You do not have permission to join the Staff Chat!");
                 return false;
             }
             if(!isset($args[0])){
@@ -35,7 +35,7 @@ class StaffChatCommand extends Command {
             $name = $sender->getName();
             foreach (Server::getInstance()->getOnlinePlayers() as $player){
                 if($player->hasPermission("staffchat.cmd")){
-                    $player->sendMessage("§8[§4STAFFCHAT§7:§f".$name."§8] §7» ".$message);
+                    $player->sendMessage("§8[§bStaffchat§8] ".$name." §l§7»§r ".$message);
                 }
             }
         }else{
