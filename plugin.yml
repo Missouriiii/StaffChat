@@ -1,9 +1,9 @@
 name: StaffChat
-
-main: SxxCodezx\Loader
-
+main: Missouriiii\StaffChat\Main
 api: 4.0.0
-
 version: 1.0.0
-
 author: SxxCodezx
+permissions:
+ staffchat.cmd:
+  default: op
+  description: Permission to join the staff chat!
