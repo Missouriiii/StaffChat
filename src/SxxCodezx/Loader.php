@@ -13,7 +13,7 @@ use SxxCodezx\Command\StaffChatCommand;
 class Loader extends PluginBase implements Listener{
 
     public function onEnable(): void{
-        $this->getLogger()->info("Plugin StaffChat Sussefully Enabled");
+        $this->getLogger()->info("Staffchat successfully enabled!");
         Server::getInstance()->getCommandMap()->register("sc", new StaffChatCommand());
     }
 
@@ -22,7 +22,7 @@ class Loader extends PluginBase implements Listener{
         $name = $pl->getName();
         foreach (Server::getInstance()->getOnlinePlayers() as $player){
             if($player->hasPermission("staffchat.cmd")){
-                $player->sendMessage("§8[§4STAFFCHAT§7:§f".$name."§8] §7» Se Unio al Juego");
+                $player->sendMessage("§8[§bStaffchat§8] §l§7»§r§e ".$name." §3joined the Staff Chat!");
             }
         }
     }
@@ -32,7 +32,7 @@ class Loader extends PluginBase implements Listener{
         $name = $pl->getName();
         foreach (Server::getInstance()->getOnlinePlayers() as $player){
             if($player->hasPermission("staffchat.cmd")){
-                $player->sendMessage("§8[§4STAFFCHAT§7:§f".$name."§8] §7» Salio Del Juego");
+                $player->sendMessage("§8[§bStaffchat§8] §l§7»§r§e ".$name." §3left the Staff Chat!");
             }
         }
     }
